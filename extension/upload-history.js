@@ -35,14 +35,14 @@ const uploadHistory = async (newHistory, GQL_URL, GQL_TOKEN) => {
 };
 
 const prepareHistoryData = async (history, PACKAGE_NAME, CONTAINER_LINK_ID) => {
-  const containTypeLinkId = await getLinkId("@deep-foundation/core", "Contain");
+  const containTypeLinkId = await getLinkId(GQL_URL, GQL_TOKEN, "@deep-foundation/core", "Contain");
   const browserExtensionLinkId = CONTAINER_LINK_ID;
-  const pageTypeLinkId = await getLinkId(PACKAGE_NAME, "Page");
-  const urlTypeLinkId = await getLinkId(PACKAGE_NAME, "PageUrl");
-  const titleTypeLinkId = await getLinkId(PACKAGE_NAME, "PageTitle");
-  const typedCountTypeLinkId = await getLinkId(PACKAGE_NAME, "TypedCount");
-  const visitCountTypeLinkId = await getLinkId(PACKAGE_NAME, "VisitCount");
-  const lastVisitTimeTypeLinkId = await getLinkId(PACKAGE_NAME, "LastVisitTime");
+  const pageTypeLinkId = await getLinkId(GQL_URL, GQL_TOKEN, PACKAGE_NAME, "Page");
+  const urlTypeLinkId = await getLinkId(GQL_URL, GQL_TOKEN, PACKAGE_NAME, "PageUrl");
+  const titleTypeLinkId = await getLinkId(GQL_URL, GQL_TOKEN, PACKAGE_NAME, "PageTitle");
+  const typedCountTypeLinkId = await getLinkId(GQL_URL, GQL_TOKEN, PACKAGE_NAME, "TypedCount");
+  const visitCountTypeLinkId = await getLinkId(GQL_URL, GQL_TOKEN, PACKAGE_NAME, "VisitCount");
+  const lastVisitTimeTypeLinkId = await getLinkId(GQL_URL, GQL_TOKEN, PACKAGE_NAME, "LastVisitTime");
 
   const historyData = history.map((page) => {
     return {
@@ -124,7 +124,7 @@ export const executeUploadHistory = async (history, GQL_URL, GQL_TOKEN, PACKAGE_
 
 const checkExistingHistory = async (history, PACKAGE_NAME, GQL_URL, GQL_TOKEN) => {
   const historyIds = history.map((page) => page.id);
-  const pageTypeLinkId = await getLinkId(PACKAGE_NAME, "Page");
+  const pageTypeLinkId = await getLinkId(GQL_URL, GQL_TOKEN, PACKAGE_NAME, "Page");
 
   const requestPayload = {
     query: `

@@ -3,14 +3,20 @@ import { Button, Text, Stack, Input } from '@chakra-ui/react';
 import { PACKAGE_NAME } from '../package-name';
 import { useContainer } from '../hooks/use-container';
 
-export function BrowserExtension({deep}) {
+export function BrowserExtension({ deep }) {
 
   const containerLinkId = useContainer(deep);
+  console.log(containerLinkId);
 
   useEffect(() => {
-    chrome.storage.sync.set({ CONTAINER_LINK_ID: containerLinkId, PACKAGE_NAME: PACKAGE_NAME, GQL_URL: `https://${process.env.NEXT_PUBLIC_GQL_PATH}`, GQL_TOKEN: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwczovL2hhc3VyYS5pby9qd3QvY2xhaW1zIjp7IngtaGFzdXJhLWFsbG93ZWQtcm9sZXMiOlsiYWRtaW4iXSwieC1oYXN1cmEtZGVmYXVsdC1yb2xlIjoiYWRtaW4iLCJ4LWhhc3VyYS11c2VyLWlkIjoiMzc2In0sImlhdCI6MTY3OTkzNTMyOH0.LmDNulSTSSrm7gKno3E1sBLAhz5TKi-SFBl9oFNfs-k" },
+    chrome.storage.sync.set({
+      CONTAINER_LINK_ID: containerLinkId,
+      PACKAGE_NAME: PACKAGE_NAME,
+      GQL_URL: `https://${process.env.NEXT_PUBLIC_GQL_PATH}`,
+      GQL_TOKEN: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwczovL2hhc3VyYS5pby9qd3QvY2xhaW1zIjp7IngtaGFzdXJhLWFsbG93ZWQtcm9sZXMiOlsiYWRtaW4iXSwieC1oYXN1cmEtZGVmYXVsdC1yb2xlIjoiYWRtaW4iLCJ4LWhhc3VyYS11c2VyLWlkIjoiMzgwIn0sImlhdCI6MTY4OTUzOTUxMX0.VhYda78vD-jm0XxDHGEVQR7b0wFEMLz7pKRFS8LlaZY",
+    },
       () => { console.log("Settings saved"); });
-  }, [])
+  }, [containerLinkId])
 
   // const getTabs = async () => {
   //   if (typeof (window) === "object") {

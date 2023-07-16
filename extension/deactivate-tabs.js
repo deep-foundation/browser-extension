@@ -1,7 +1,7 @@
 import { getLinkId } from "./get-link-id.js"
 
 export const executeDeactivateTabs = async (GQL_URL, GQL_TOKEN, PACKAGE_NAME) => {
-  const activeTypeLinkId = await getLinkId(PACKAGE_NAME, "Active");
+  const activeTypeLinkId = await getLinkId(GQL_URL, GQL_TOKEN, PACKAGE_NAME, "Active");
   const requestPayload = {
     query: `
         mutation deactivateTabs {

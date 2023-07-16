@@ -1,12 +1,12 @@
 import { getLinkId } from "./get-link-id.js"
 
 const prepareInsertTabsVariables = async (tabs, PACKAGE_NAME, CONTAINER_LINK_ID) => {
-  const containTypeLinkId = await getLinkId("@deep-foundation/core", "Contain");
+  const containTypeLinkId = await getLinkId(GQL_URL, GQL_TOKEN, "@deep-foundation/core", "Contain");
   const browserExtensionLinkId = CONTAINER_LINK_ID;
-  const tabTypeLinkId = await getLinkId(PACKAGE_NAME, "Tab");
-  const urlTypeLinkId = await getLinkId(PACKAGE_NAME, "TabUrl");
-  const titleTypeLinkId = await getLinkId(PACKAGE_NAME, "TabTitle");
-  const activeTypeLinkId = await getLinkId(PACKAGE_NAME, "Active");
+  const tabTypeLinkId = await getLinkId(GQL_URL, GQL_TOKEN, PACKAGE_NAME, "Tab");
+  const urlTypeLinkId = await getLinkId(GQL_URL, GQL_TOKEN, PACKAGE_NAME, "TabUrl");
+  const titleTypeLinkId = await getLinkId(GQL_URL, GQL_TOKEN, PACKAGE_NAME, "TabTitle");
+  const activeTypeLinkId = await getLinkId(GQL_URL, GQL_TOKEN, PACKAGE_NAME, "Active");
   const links = tabs.map((tab) => ({
     type_id: tabTypeLinkId,
     number: { data: { value: tab.id } },
@@ -101,7 +101,7 @@ export const executeInsertTabs = async (tabs, GQL_URL, GQL_TOKEN, PACKAGE_NAME, 
 
 const checkExistingTabs = async (tabs, PACKAGE_NAME, GQL_URL, GQL_TOKEN) => {
   const tabIds = tabs.map((tab) => tab.id);
-  const tabTypeLinkId = await getLinkId(PACKAGE_NAME, "Tab");
+  const tabTypeLinkId = await getLinkId(GQL_URL, GQL_TOKEN, PACKAGE_NAME, "Tab");
 
   const requestPayload = {
     query: `

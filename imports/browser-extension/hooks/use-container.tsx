@@ -1,5 +1,4 @@
-import React, { useEffect } from 'react';
-import { useLocalStore } from '@deep-foundation/store/local';
+import React, { useEffect, useState } from 'react';
 import { DeepClient } from '@deep-foundation/deeplinks/imports/client';
 import { createContainer } from '../create-container';
 
@@ -8,10 +7,7 @@ import { createContainer } from '../create-container';
 // - deep: The DeepClient object used for communication.
 // Returns: The container link ID.
 export const useContainer = (deep: DeepClient) => {
-    const [containerLinkId, setContainerLinkId] = useLocalStore<number | undefined>(
-        'containerLinkId',
-        undefined
-    );
+    const [containerLinkId, setContainerLinkId] = useState<number | undefined>(undefined);
 
     useEffect(() => {
         if (!containerLinkId) {

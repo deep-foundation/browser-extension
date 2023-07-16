@@ -9,13 +9,13 @@ import { LinkName } from "./link-name";
  */
 export async function createContainer(deep: DeepClient): Promise<number> {
   const containTypeLinkId = await deep.id("@deep-foundation/core", "Contain"); // Retrieve the link ID for the "Contain" type.
-  const cameraTypeLinkId = await deep.id(PACKAGE_NAME, "BrowserExtension"); // Retrieve the link ID for the "Camera" type.
+  const containerTypeLinkId = await deep.id(PACKAGE_NAME, "BrowserExtension"); // Retrieve the link ID for the "BrowserExtension" type.
 
-  const { data: [{ id: containerLinkId = undefined } = {}] = [] } = await deep.select({ type_id: cameraTypeLinkId }); // Check if a container link already exists for the "Camera" type.
+  const { data: [{ id: containerLinkId = undefined } = {}] = [] } = await deep.select({ type_id: containerTypeLinkId }); // Check if a container link already exists for the "BrowserExtension" type.
 
   if (!containerLinkId) {
     const { data: [{ id: newContainerLinkId }] } = await deep.insert({
-      type_id: cameraTypeLinkId,
+      type_id: containerTypeLinkId,
       in: {
         data: {
           type_id: containTypeLinkId,

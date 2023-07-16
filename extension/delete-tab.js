@@ -1,10 +1,10 @@
 import { getLinkId } from "./get-link-id.js"
 
 export const executeDeleteTab = async (tabId, GQL_URL, GQL_TOKEN, PACKAGE_NAME) => {
-  const containTypeLinkId = await getLinkId("@deep-foundation/core", "Contain");
-  const browserExtensionTypeLinkId = await getLinkId(PACKAGE_NAME, "BrowserExtension");
-  const tabTypeLinkId = await getLinkId(PACKAGE_NAME, "Tab");
-  const containTreeId = await getLinkId("@deep-foundation/core", "containTree");
+  const containTypeLinkId = await getLinkId(GQL_URL, GQL_TOKEN, "@deep-foundation/core", "Contain");
+  const browserExtensionTypeLinkId = await getLinkId(GQL_URL, GQL_TOKEN, PACKAGE_NAME, "BrowserExtension");
+  const tabTypeLinkId = await getLinkId(GQL_URL, GQL_TOKEN, PACKAGE_NAME, "Tab");
+  const containTreeId = await getLinkId(GQL_URL, GQL_TOKEN, "@deep-foundation/core", "containTree");
 
   const requestPayload = {
     query: `

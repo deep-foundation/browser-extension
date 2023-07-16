@@ -1,9 +1,9 @@
 import { DeepClient } from "@deep-foundation/deeplinks/imports/client";
 import { PACKAGE_NAME } from "./package-name";
 
-export default async function uploadHistory(deep: DeepClient, deviceLinkId, history) {
+export default async function uploadHistory(deep: DeepClient, containerLinkId, history) {
   const containTypeLinkId = await deep.id("@deep-foundation/core", "Contain");
-  const browserExtensionLinkId = await deep.id(deviceLinkId, "BrowserExtension");
+  const browserExtensionLinkId = containerLinkId;
   const pageTypeLinkId = await deep.id(PACKAGE_NAME, "Page");
   const urlTypeLinkId = await deep.id(PACKAGE_NAME, "PageUrl");
   const titleTypeLinkId = await deep.id(PACKAGE_NAME, "PageTitle");

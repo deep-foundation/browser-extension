@@ -11,7 +11,7 @@ function Page() {
   const deep = useDeep();
 
   useEffect(() => {
-    if (deep.linkId === 0) {
+    if(deep.linkId === 0) {
       deep.guest();
     }
   }, []);

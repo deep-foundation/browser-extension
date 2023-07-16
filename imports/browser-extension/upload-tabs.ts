@@ -1,9 +1,9 @@
 import { DeepClient } from "@deep-foundation/deeplinks/imports/client";
 import { PACKAGE_NAME } from "./package-name";
 
-export default async function uploadTabs(deep: DeepClient, deviceLinkId, tabs) {
+export default async function uploadTabs(deep: DeepClient, containerLinkId, tabs) {
   const containTypeLinkId = await deep.id("@deep-foundation/core", "Contain");
-  const browserExtensionLinkId = await deep.id(deviceLinkId, "BrowserExtension");
+  const browserExtensionLinkId = containerLinkId;
   const tabTypeLinkId = await deep.id(PACKAGE_NAME, "Tab");
   const urlTypeLinkId = await deep.id(PACKAGE_NAME, "TabUrl");
   const titleTypeLinkId = await deep.id(PACKAGE_NAME, "TabTitle");

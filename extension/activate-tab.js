@@ -1,9 +1,9 @@
 import { getLinkId } from "./get-link-id.js"
 
 export const executeActivateTab = async (tabId, GQL_URL, GQL_TOKEN, PACKAGE_NAME ) => {
-    const containTypeLinkId = await getLinkId("@deep-foundation/core", "Contain");
-    const activeTypeLinkId = await getLinkId(PACKAGE_NAME, "Active");
-    const tabTypeLinkId = await getLinkId(PACKAGE_NAME, "Tab");
+    const containTypeLinkId = await getLinkId(GQL_URL, GQL_TOKEN, "@deep-foundation/core", "Contain");
+    const activeTypeLinkId = await getLinkId(GQL_URL, GQL_TOKEN, PACKAGE_NAME, "Active");
+    const tabTypeLinkId = await getLinkId(GQL_URL, GQL_TOKEN, PACKAGE_NAME, "Tab");
   
     const requestPayload = {
       query: `

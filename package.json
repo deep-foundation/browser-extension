@@ -46,7 +46,7 @@
   "devDependencies": {
     "@atao60/fse-cli": "^0.1.7",
     "@capacitor/cli": "^5.0.0",
-    "@deep-foundation/npm-automation": "^1.0.2",
+    "@deep-foundation/npm-automation": "^18.1.10",
     "@types/chrome": "0.0.213",
     "@types/fs-extra": "^11.0.1",
     "@types/node": "^20.2.4",

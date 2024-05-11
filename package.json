@@ -3,7 +3,7 @@
   "keywords": [
     "deep-browser-extension"
   ],
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "deep-browser-extension",
   "repository": {
     "type": "git",
@@ -30,18 +30,18 @@
   ],
   "license": "Unlicense",
   "dependencies": {
-    "@chakra-ui/react": "~2.7.1",
+    "@chakra-ui/react": "*",
     "@deep-foundation/capacitor-device": "^20.0.3-dev.3",
     "@deep-foundation/core": "~0.0.2",
-    "@deep-foundation/deeplinks": "~0.0.222",
-    "@deep-foundation/react-hasura": "~0.0.16",
+    "@deep-foundation/deeplinks": "*",
+    "@deep-foundation/react-hasura": "*",
     "@deep-foundation/store": "~0.0.21",
     "@deep-foundation/tsx": "^0.0.5",
     "dotenv": "~16.3.1",
     "dotenv-load": "~2.0.1",
     "next": "~13.4.10",
     "next-env": "~1.1.1",
-    "react": "~18.2.0",
+    "react": "*",
     "react-dom": "~18.2.0"
   },
   "devDependencies": {
